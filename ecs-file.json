@@ -1,0 +1,39 @@
+{
+  "container_definitions": [
+    {
+      "name": "app",
+      "image": "",
+      "environment": [
+        {
+          "name": "DATABASE_URL",
+          "value": "postgres://postgres:GYHFAE70u2c3MjQraHq-XA@db:5432/postgres"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        }
+      ],
+      "links": [
+        "db"
+      ]
+    },
+    {
+      "name": "db",
+      "image": "postgres",
+      "port_mappings": [
+        {
+          "protocol": "tcp",
+          "container_port": 5432,
+          "host_port": 0
+        }
+      ],
+      "environment": [
+        {
+          "name": "POSTGRES_PASSWORD",
+          "value": "GYHFAE70u2c3MjQraHq-XA"
+        }
+      ]
+    }
+  ],
+  "family": "cparrattoAspNetCorePostgreSQLDockerApp"
+}

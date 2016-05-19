@@ -1,25 +1,17 @@
+---
 version: '2'
-
 services:
-
-  web:
-    build:
-      context: .
-      dockerfile: aspnetcore.dockerfile
-    ports:
-     - "5000:5000"
-    networks:
-      - aspnetcoreapp-network
-
-  postgres:
+  common:
+    build: "."
+    environment:
+      DATABASE_URL: postgres://postgres:GYHFAE70u2c3MjQraHq-XA@db:5432/postgres
+      NODE_ENV: production
+  app:
+    extends:
+      service: common
+    links:
+    - db
+  db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: password
-    networks:
-      - aspnetcoreapp-network
-
-networks:
-  aspnetcoreapp-network:
-    driver: bridge
-
-
+      POSTGRES_PASSWORD: GYHFAE70u2c3MjQraHq-XA

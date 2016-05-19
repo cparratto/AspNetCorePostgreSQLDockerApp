@@ -1,0 +1,48 @@
+{
+  "services": [
+    {
+      "name": "app",
+      "image": "",
+      "target_num_containers": 1,
+      "sequential_deployment": true,
+      "autorestart": "ALWAYS",
+      "autoredeploy": true,
+      "container_envvars": [
+        {
+          "key": "DATABASE_URL",
+          "value": "postgres://postgres:GYHFAE70u2c3MjQraHq-XA@db:5432/postgres"
+        },
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        }
+      ],
+      "linked_to_service": [
+        {
+          "name": "db",
+          "to_service": "db"
+        }
+      ]
+    },
+    {
+      "name": "db",
+      "image": "postgres",
+      "target_num_containers": 1,
+      "sequential_deployment": true,
+      "container_ports": [
+        {
+          "protocol": "tcp",
+          "inner_port": 5432,
+          "published": true
+        }
+      ],
+      "container_envvars": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "GYHFAE70u2c3MjQraHq-XA"
+        }
+      ]
+    }
+  ],
+  "name": "cparrattoAspNetCorePostgreSQLDockerApp"
+}
