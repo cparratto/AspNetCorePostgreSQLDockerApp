@@ -6,7 +6,7 @@
       "environment": [
         {
           "name": "DATABASE_URL",
-          "value": "postgres://postgres:GYHFAE70u2c3MjQraHq-XA@db:5432/postgres"
+          "value": "postgres://postgres:Xm4UM9OrW6pZx5__YEo6Bw@db:5432/postgres"
         },
         {
           "name": "NODE_ENV",
@@ -30,7 +30,7 @@
       "environment": [
         {
           "name": "POSTGRES_PASSWORD",
-          "value": "GYHFAE70u2c3MjQraHq-XA"
+          "value": "Xm4UM9OrW6pZx5__YEo6Bw"
         }
       ]
     }
