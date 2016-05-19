@@ -1,12 +1,13 @@
 FROM ubuntu
 
-RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install libpq-dev curl nuget autoconf automake build-essential libtool unzip nodejs nodejs-dev nodejs-legacy npm git-core
+RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install libpq-dev curl nuget autoconf automake build-essential libtool unzip git-core wget libssl-dev
 
-ENV MONO_VERSION="mono-4.0.4.1" \
+ENV MONO_VERSION="mono-4.0.5.1" \
     DNX_VERSION="1.0.0-beta5" \
     MONO_THREADS_PER_CPU="2000" \
     DNX_USER_HOME="/opt/dnx" \
     LIBUV_VERSION="1.4.2" \
+    NODE_VERSION="4.4.4" \
     NODE_ENV="production"
 
 RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
@@ -21,6 +22,11 @@ RUN apt-get install -y mono-devel ca-certificates-mono fsharp mono-vbnc nuget \
     && sh autogen.sh && ./configure && make && make install \
     && rm -rf /usr/local/src/libuv-$LIBUV_VERSION \
     && ldconfig
+RUN git clone https://github.com/tj/n.git ~/.n \
+    && cd ~/.n \
+    && make install \
+    && n ${NODE_VERSION} \
+    && rm -rf ~/.n
 RUN mkdir -p /app
 COPY . /app
 RUN npm install -g bower && npm install bower
