@@ -22,9 +22,11 @@ RUN apt-get install -y mono-devel ca-certificates-mono fsharp mono-vbnc nuget \
     && rm -rf /usr/local/src/libuv-$LIBUV_VERSION \
     && ldconfig
 RUN mkdir -p /app
+COPY . /app
 RUN npm install -g bower && npm install bower
 RUN npm install -g gulp && npm install gulp
 WORKDIR /app
+RUN dnu restore
 RUN rm -rf ./node_modules \
     && npm install --production
 RUN echo '{ "allow_root": true }' > ~/.bowerrc \
