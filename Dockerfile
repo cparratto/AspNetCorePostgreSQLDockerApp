@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install libpq-dev curl nuget autoconf automake build-essential libtool unzip git-core wget libssl-dev
+RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install libpq-dev curl nuget autoconf automake build-essential libtool unzip libc6-dev libicu-dev git-core wget libssl-dev
 
 ENV MONO_VERSION="mono-4.0.5.1" \
     DNX_VERSION="1.0.0-beta5" \
@@ -8,7 +8,8 @@ ENV MONO_VERSION="mono-4.0.5.1" \
     DNX_USER_HOME="/opt/dnx" \
     LIBUV_VERSION="1.4.2" \
     NODE_VERSION="4.4.4" \
-    NODE_ENV="production"
+    NODE_ENV="production" \
+    PATH="$DNX_USER_HOME/runtimes/default/bin:$PATH"
 
 RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
     && echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/4.0.5.1 main" > /etc/apt/sources.list.d/mono-xamarin.list \
@@ -36,8 +37,7 @@ RUN npm install -g gulp && npm install gulp
 WORKDIR /app
 WORKDIR /app/src
 RUN mkdir /app/build \
-    && nuget restore -NonInteractive \
-    && xbuild /property:Configuration=Release /property:OutDir=/app/build/
+    && dnu restore
 RUN rm -rf ./node_modules \
     && npm install --production
 RUN echo '{ "allow_root": true }' > ~/.bowerrc \
