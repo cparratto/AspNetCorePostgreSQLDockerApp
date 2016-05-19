@@ -14,9 +14,7 @@ RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A1
     && apt-get update
 RUN apt-get install -y mono-devel ca-certificates-mono fsharp mono-vbnc nuget \
     && curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh \
-    && bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh \
-    && dnvm install $DNX_VERSION -alias default \
-    && dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default" \
+    && bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh && dnvm install $DNX_VERSION -alias default &&dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default" \
     && curl -sSL https://github.com/libuv/libuv/archive/v${LIBUV_VERSION}.tar.gz | tar zxfv - -C /usr/local/src \
     && cd /usr/local/src/libuv-$LIBUV_VERSION \
     && sh autogen.sh && ./configure && make && make install \
