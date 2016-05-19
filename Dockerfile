@@ -6,6 +6,7 @@ ENV MONO_VERSION="mono-4.0.4.1" \
     DNX_VERSION="1.0.0-beta5" \
     MONO_THREADS_PER_CPU="2000" \
     DNX_USER_HOME="/opt/dnx" \
+    LIBUV_VERSION="1.4.2" \
     NODE_ENV="production"
 
 RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
