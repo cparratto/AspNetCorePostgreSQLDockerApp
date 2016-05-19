@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install libpq-dev curl nuget autoconf automake build-essential libtool nodejs-legacy nodejs-dev npm git-core
+RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install libpq-dev curl nuget autoconf automake build-essential libtool unzip nodejs-legacy nodejs-dev npm git-core
 
 ENV MONO_VERSION="mono-4.0.4.1" \
     DNX_VERSION="1.0.0-beta5" \
