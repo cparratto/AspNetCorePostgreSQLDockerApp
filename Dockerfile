@@ -28,11 +28,16 @@ RUN git clone https://github.com/tj/n.git ~/.n \
     && n ${NODE_VERSION} \
     && rm -rf ~/.n
 RUN mkdir -p /app
-COPY . /app
+RUN mkdir /app/src
+COPY . /app/src
+WORKDIR /app/src
 RUN npm install -g bower && npm install bower
 RUN npm install -g gulp && npm install gulp
 WORKDIR /app
-RUN dnu restore
+WORKDIR /app/src
+RUN mkdir /app/build \
+    && nuget restore -NonInteractive \
+    && xbuild /property:Configuration=Release /property:OutDir=/app/build/
 RUN rm -rf ./node_modules \
     && npm install --production
 RUN echo '{ "allow_root": true }' > ~/.bowerrc \
