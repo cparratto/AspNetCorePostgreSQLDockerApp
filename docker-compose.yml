@@ -4,14 +4,9 @@ services:
   common:
     build: "."
     environment:
-      DATABASE_URL: postgres://postgres:Xm4UM9OrW6pZx5__YEo6Bw@db:5432/postgres
       NODE_ENV: production
   app:
     extends:
       service: common
     links:
     - db
-  db:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: Xm4UM9OrW6pZx5__YEo6Bw
