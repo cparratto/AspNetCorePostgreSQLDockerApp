@@ -28,7 +28,7 @@
           "protocol": "tcp",
           "inner_port": 5000,
           "published": true,
-          "outer_port": 3685
+          "outer_port": 6736
         }
       ]
     },
