@@ -14,7 +14,6 @@ RUN git clone https://github.com/tj/n.git ~/.n \
     && rm -rf ~/.n
 RUN echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list \
     && apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893 \
-    && echo "deb http://security.ubuntu.com/ubuntu trusty-security main \n" > /etc/apt/sources.list \
     && echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.5 main \n deb-src http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.5 main \n" > /etc/apt/sources.list \
     && wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | apt-key add - \
     && apt-get update \
