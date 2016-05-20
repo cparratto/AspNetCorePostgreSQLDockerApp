@@ -10,7 +10,7 @@
       "container_envvars": [
         {
           "key": "DATABASE_URL",
-          "value": "postgres://postgres:XBb0-JWgEzsC1Gubpr47Cw@db:5432/postgres"
+          "value": "postgres://postgres:q-SQdW_jYUO6DLJoPVMgcA@db:5432/postgres"
         },
         {
           "key": "NODE_ENV",
@@ -28,7 +28,7 @@
           "protocol": "tcp",
           "inner_port": 5000,
           "published": true,
-          "outer_port": 6736
+          "outer_port": 1624
         }
       ]
     },
@@ -47,7 +47,7 @@
       "container_envvars": [
         {
           "key": "POSTGRES_PASSWORD",
-          "value": "XBb0-JWgEzsC1Gubpr47Cw"
+          "value": "q-SQdW_jYUO6DLJoPVMgcA"
         }
       ]
     }
