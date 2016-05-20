@@ -4,7 +4,7 @@ services:
   common:
     build: "."
     environment:
-      DATABASE_URL: postgres://postgres:d5aMhwxfC6kyfJTRxeYilg@db:5432/postgres
+      DATABASE_URL: postgres://postgres:ia0t1dcxvr7IXhFQu6nEng@db:5432/postgres
       NODE_ENV: production
   app:
     extends:
@@ -14,4 +14,4 @@ services:
   db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: d5aMhwxfC6kyfJTRxeYilg
+      POSTGRES_PASSWORD: ia0t1dcxvr7IXhFQu6nEng
