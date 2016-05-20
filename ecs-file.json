@@ -3,34 +3,13 @@
     {
       "name": "app",
       "image": "",
+      "links": [
+        "db"
+      ],
       "environment": [
-        {
-          "name": "DATABASE_URL",
-          "value": "postgres://postgres:Xm4UM9OrW6pZx5__YEo6Bw@db:5432/postgres"
-        },
         {
           "name": "NODE_ENV",
           "value": "production"
-        }
-      ],
-      "links": [
-        "db"
-      ]
-    },
-    {
-      "name": "db",
-      "image": "postgres",
-      "port_mappings": [
-        {
-          "protocol": "tcp",
-          "container_port": 5432,
-          "host_port": 0
-        }
-      ],
-      "environment": [
-        {
-          "name": "POSTGRES_PASSWORD",
-          "value": "Xm4UM9OrW6pZx5__YEo6Bw"
         }
       ]
     }
