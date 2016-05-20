@@ -19,7 +19,7 @@ RUN echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trust
     && wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | apt-key add - \
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -q -y install libclang1-3.5 clang-3.5 libc6 libcurl3 libgcc1 libssl1.0.0 libstdc++6 libtinfo5 libuuid1 zlib1g \
-    && DEBIAN_FRONTEND=noninteractive apt-get -q -y installdotnet-sharedframework-microsoft.netcore.app-$DOTNET_CORE_VERSION dotnet-dev-$DOTNET_CORE_SDK_VERSION
+    && DEBIAN_FRONTEND=noninteractive apt-get -q -y install dotnet-sharedframework-microsoft.netcore.app-$DOTNET_CORE_VERSION dotnet-dev-$DOTNET_CORE_SDK_VERSION
 RUN mkdir -p /app
 COPY . /app/
 RUN npm install -g bower && npm install bower

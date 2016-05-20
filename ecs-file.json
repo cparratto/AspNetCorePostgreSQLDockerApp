@@ -6,7 +6,7 @@
       "environment": [
         {
           "name": "DATABASE_URL",
-          "value": "postgres://postgres:ia0t1dcxvr7IXhFQu6nEng@db:5432/postgres"
+          "value": "postgres://postgres:XBb0-JWgEzsC1Gubpr47Cw@db:5432/postgres"
         },
         {
           "name": "NODE_ENV",
@@ -15,6 +15,14 @@
       ],
       "links": [
         "db"
+      ],
+      "run_command": "dotnet run",
+      "port_mappings": [
+        {
+          "protocol": "tcp",
+          "container_port": 5000,
+          "host_port": 0
+        }
       ]
     },
     {
@@ -30,7 +38,7 @@
       "environment": [
         {
           "name": "POSTGRES_PASSWORD",
-          "value": "ia0t1dcxvr7IXhFQu6nEng"
+          "value": "XBb0-JWgEzsC1Gubpr47Cw"
         }
       ]
     }

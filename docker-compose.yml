@@ -4,14 +4,17 @@ services:
   common:
     build: "."
     environment:
-      DATABASE_URL: postgres://postgres:ia0t1dcxvr7IXhFQu6nEng@db:5432/postgres
+      DATABASE_URL: postgres://postgres:XBb0-JWgEzsC1Gubpr47Cw@db:5432/postgres
       NODE_ENV: production
   app:
     extends:
       service: common
     links:
     - db
+    ports:
+    - 5000:5000
+    command: dotnet run
   db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: ia0t1dcxvr7IXhFQu6nEng
+      POSTGRES_PASSWORD: XBb0-JWgEzsC1Gubpr47Cw
