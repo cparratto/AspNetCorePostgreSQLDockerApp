@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install libpq-dev build-essential git-core wget libssl-dev apt-transport-https ca-certificates libcurl4-openssl-dev libicu52 liblldb-3.6 liblttng-ust0 libunwind8 libobjc-4.8-dev
+RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install sqlite3 libsqlite3-dev libpq-dev build-essential git-core wget libssl-dev apt-transport-https ca-certificates libcurl4-openssl-dev libicu52 liblldb-3.6 liblttng-ust0 libunwind8 libobjc-4.8-dev
 
 ENV NODE_VERSION="4.4.4" \
     DOTNET_CORE_SDK_VERSION="1.0.0-preview1-002702" \
