@@ -5,8 +5,6 @@ services:
     build: "."
     environment:
       DATABASE_URL: postgres://postgres:q-SQdW_jYUO6DLJoPVMgcA@db:5432/postgres
-      POSTGRES_PASSWORD: q-SQdW_jYUO6DLJoPVMgcA
-      POSTGRES_HOST: db
       NODE_ENV: production
   app:
     extends:
