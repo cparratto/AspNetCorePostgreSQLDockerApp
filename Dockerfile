@@ -5,6 +5,8 @@ RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -q -y install s
 ENV NODE_VERSION="4.4.4" \
     DOTNET_CORE_SDK_VERSION="1.0.0-preview1-002702" \
     DOTNET_CORE_VERSION="1.0.0-rc2-3002702" \
+    ASPNETCORE_URLS="http://*:5000" \
+    ASPNETCORE_ENVIRONMENT="Production" \
     NODE_ENV="production"
 
 RUN git clone https://github.com/tj/n.git ~/.n \
